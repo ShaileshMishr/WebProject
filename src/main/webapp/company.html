@@ -1,0 +1,29 @@
+<!-- 
+// Your company name should come from the servlet context
+// create at least two servlets wherein one servlet will have a config with username
+// and password. Username and password field will be there in html page
+// when user wants to login, the credentials will be compared with the one present in
+// the config. On successful login, Welcome <username> should be displayed.
+ -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Company Login Page</h1>
+<form action="/web-demo/CompServlet" method="post">
+
+ <label for="usName" >User Name :</label>
+<input type = "text" name="usName" placeholder ="Enter username"/><br><br>
+<label for="pass">User Password :</label>
+<input type = "text" name="pass" placeholder ="Enter password"/><br><br>
+<input type = "submit" value = "Login"/><br><br>
+</form>
+
+
+</body>
+</html>
