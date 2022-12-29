@@ -62,3 +62,18 @@ public class AboutServlet extends HttpServlet {
 	}
 
 }
+
+// RequestDispatcher Interface: It forwards a request to another resource or include the content of an resource
+// using this we can call anither resource from servlet
+
+// Methods of RequestDispatcher:
+// forward(ServletRequest req,ServletResponse res): forwards the request from servlet to another resource
+// include(ServletRequest req,ServletResponse res): it will include contents of a resource in the response
+
+
+
+
+
+
+
+

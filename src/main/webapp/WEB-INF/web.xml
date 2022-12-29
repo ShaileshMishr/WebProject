@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
   <display-name>web-demo</display-name>
-  <welcome-file-list>
-    <welcome-file>company.html</welcome-file>
-  </welcome-file-list>
-  
-
   
   
-  <!-- 
+  
   
    <welcome-file-list>
     <welcome-file>index.html</welcome-file>
@@ -23,7 +18,11 @@
   
    <servlet>
    <servlet-name>myServlet</servlet-name>
-   <servlet-class>com.training.web.AboutServlet</servlet-class>
+   <servlet-class>com.training.web.WelcomeServlet</servlet-class>
+  <!-- 
+   <servlet-class>com.training.web.RegisterServlet</servlet-class>
+   -->
+  
    
    
    <init-param>
@@ -35,10 +34,22 @@
   
   <servlet-mapping>
   <servlet-name>myServlet</servlet-name>
- <url-pattern>/about</url-pattern>
+ <url-pattern>/WelcomeServlet</url-pattern>
+ <!-- 
+ <url-pattern>/RegisterServlet</url-pattern>
+  -->
    </servlet-mapping>
-   -->
+   
  
+ <!-- 
+ 
+ // For CompServlet
+ 
+ <welcome-file-list>
+    <welcome-file>company.html</welcome-file>
+  </welcome-file-list>
+  
+  
     <context-param>
    <param-name>company</param-name>
     <param-value>ICS</param-value>
@@ -47,6 +58,7 @@
    <servlet>
    <servlet-name>myServlet</servlet-name>
    <servlet-class>com.training.web.CompServlet</servlet-class>
+   
    
    
    <init-param>
@@ -66,5 +78,8 @@
   <servlet-name>myServlet</servlet-name>
  <url-pattern>/CompServlet</url-pattern>
    </servlet-mapping>
+ 
+  -->
+  
 
 </web-app>
