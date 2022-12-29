@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -16,6 +17,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 
+import com.training.web.model.User;
 import com.training.web.service.LoginService;
 import com.training.web.service.LoginServiceImpl;
 
@@ -62,7 +64,9 @@ public class LoginFilter implements Filter {
 		}
 		
 		else if(service.isValidUser(userName, password1)) {
+			List<User> userList = service.getUsers();
 			request.setAttribute("user1", userName);
+			request.setAttribute("userList", userList);
 			chain.doFilter(request, response);
 
 		}

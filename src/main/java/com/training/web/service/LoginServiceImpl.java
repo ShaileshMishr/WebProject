@@ -8,10 +8,11 @@ import com.training.web.model.User;
 
 public class LoginServiceImpl implements LoginService{
 
+	LoginDao dao = new LoginDaoImpl();
 	@Override
 	public boolean isValidUser(String username, String password) {
 		
-		LoginDao dao = new LoginDaoImpl();
+		
 		boolean isValid = false;
 		List<User> userList = dao.getUsers();
 		
@@ -24,4 +25,9 @@ public class LoginServiceImpl implements LoginService{
 		return isValid;
 	}
 
+	@Override
+	public List<User> getUsers() {
+		List<User> userList = dao.getUsers();
+		return userList;
+	}
 }
