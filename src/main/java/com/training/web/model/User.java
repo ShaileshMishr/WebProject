@@ -4,15 +4,17 @@ public class User {
 	
 	private String userName;
 	private String password;
+	private String dateOfJoining;
 	
 	public User() {
 		
 	}
 
-	public User(String userName, String password) {
+	public User(String userName, String password, String dateOfJoining) {
 		super();
 		this.userName = userName;
 		this.password = password;
+		this.dateOfJoining = dateOfJoining;
 	}
 
 	public String getUserName() {
@@ -30,9 +32,13 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
-	
-	
+
+	public String getDateOfJoining() {
+		return dateOfJoining;
+	}
+
+	public void setDateOfJoining(String dateOfJoining) {
+		this.dateOfJoining = dateOfJoining;
+	}
 
 }

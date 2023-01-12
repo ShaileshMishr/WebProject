@@ -9,6 +9,11 @@
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
   
+   <!--
+   <welcome-file-list>
+    <welcome-file>registration.jsp</welcome-file>
+  </welcome-file-list>
+   -->
   
    <context-param>
    <param-name>value1</param-name>

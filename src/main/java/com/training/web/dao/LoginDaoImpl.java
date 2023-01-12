@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.training.web.DatabaseConnection;
+import com.training.web.model.Regis;
 import com.training.web.model.User;
 
 public class LoginDaoImpl implements LoginDao{
@@ -33,7 +35,7 @@ public class LoginDaoImpl implements LoginDao{
 				
 				
 				while(rs.next()) {
-					userList.add(new User(rs.getString(1), rs.getString(2)));
+					userList.add(new User(rs.getString(1), rs.getString(2),rs.getString(3)));
 				}
 				
 			} catch (Exception e) {
@@ -51,4 +53,44 @@ public class LoginDaoImpl implements LoginDao{
 			}
 		 return userList;
 			}
+
+	@Override
+	public List<Regis> getRegis() {
+		List<Regis> regisList = new ArrayList<>();
+		Connection con = null;
+		
+		 try {
+	        	
+				Class.forName("com.mysql.cj.jdbc.Driver");
+				
+				 String url = "jdbc:mysql://localhost:3306/infinite";
+				 
+			        String user="root";
+			        String password = "india@123";
+			        
+			    con = DriverManager.getConnection(url, user, password);
+				Statement stmt = con.createStatement();
+				
+				ResultSet rs = stmt.executeQuery("select * from login");
+				
+				
+				while(rs.next()) {
+					regisList.add(new Regis(rs.getString(1), rs.getString(2)));
+				}
+				
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+			} 
+		 
+		 finally {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		return regisList;
+	}
 	}

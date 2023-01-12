@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpFilter;
 
 import com.training.web.model.User;
@@ -58,14 +59,23 @@ public class LoginFilter implements Filter {
 		if(userName.equals("") || password1.equals("")) {
 			out.print("<h2>**Please enter username and password**</h2> <br>");
 			
-			RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+			//RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+			RequestDispatcher rd = request.getRequestDispatcher("new.jsp");
 			rd.include(request, response);
 				
 		}
 		
 		else if(service.isValidUser(userName, password1)) {
+			
+//			Cookie cookie1 = new Cookie("username", userName);
+//			Cookie cookie2 = new Cookie("password", password1);
+//			
+//			response.addCookie(cookie1);
+//			response.addCookie(cookie2);
+			
 			List<User> userList = service.getUsers();
 			request.setAttribute("user1", userName);
+			request.setAttribute("pwd", password1);
 			request.setAttribute("userList", userList);
 			chain.doFilter(request, response);
 
@@ -73,9 +83,10 @@ public class LoginFilter implements Filter {
 		
 		
 		else {
-			out.print("<h2>** Incorrect Login Credentials **</h2> ");
+//			out.print("<h2>** Incorrect Login Credentials **</h2> ");
 			
-			RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+			//RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 			rd.include(request, response);
 		}
 	

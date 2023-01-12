@@ -40,21 +40,26 @@ public class LoginServlet extends HttpServlet {
 			out.print("<h2>**Please enter username and password**</h2> <br>");
 			
 			RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+			//RequestDispatcher rd = request.getRequestDispatcher("new.jsp");
 			rd.include(request, response);
 				
 		}
-		else if(userName.equals("test") || password.equals("1234")) {
+		else if(userName.equalsIgnoreCase("test") || password.equalsIgnoreCase("1234")) {
 			
 			request.setAttribute("user", userName);
-			RequestDispatcher rd = request.getRequestDispatcher("WelcomeServlet");
+			request.setAttribute("pwd", password);
+			//RequestDispatcher rd = request.getRequestDispatcher("WelcomeServlet");
+			RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
 			rd.forward(request, response);
 			
 			//response.sendRedirect("WelcomeServlet");
 		}
 		
 		else {
-			out.print("<h2>** Incorrect Login Credentials **</h2> ");
+			//out.print("<h2>** Incorrect Login Credentials **</h2> ");
 			
+			
+			//RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 			RequestDispatcher rd = request.getRequestDispatcher("/index.html");
 			rd.include(request, response);
 		}
